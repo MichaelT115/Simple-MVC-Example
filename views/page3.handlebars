@@ -1,18 +1,65 @@
 <html lang="en">
+
 <head>
-  <meta charset="utf-8"/>
+  <meta charset="utf-8" />
   <!-- passed in variables in handlebars are surrounded by two curly braces like the following
        Any variable you pass into res.render will be available by name in the template through
        the curly braces
   -->
   <title>{{title}}</title>
 </head>
+
 <body>
   <h1>Welcome to page 3</h1>
-  
+
   <!-- links or URLs are always GET resources as they are getting (retrieving) a resource -->
   <a href="/">Home</a>
   <a href="/page1">Page 1</a>
   <a href="/page2">Page 2</a>
+  <a href="/page4">Page 4</a>
+
+  <form action="/setDog" method="POST">
+    <label for="firstname">First name:</label>
+    <input type="text" name="firstname" value="">
+    <label for="lastname">Last Name: </label>
+    <input type="text" name="lastname" value=""> Who gives a dog a last name?
+    <br>
+    <label for="breed">Breed:</label>
+    <select name="breed">
+      <option value="Labrador Retriever">Labrador Retriever</option>
+      <option value="German Shepherd">German Shepherd</option>
+      <option value="Golden Retriever">Golden Retriever</option>
+      <option value="Beagle">Beagle</option>
+      <option value="Bulldog">Bulldog</option>
+      <option value="Yorkshire Terrier">Yorkshire Terrier</option>
+      <option value="Boxer">Boxer</option>
+      <option value="Poodle">Poodle</option>
+      <option value="Rottweiler">Rottweiler</option>
+      <option value="Dachshund">Dachshund</option>
+    </select>
+    <br>
+    <label for="age">Age:</label>
+    <input type="number" name="age" value="0">
+
+    <br>
+    <input type="submit" value="submit">
+  </form>
+
+  <br/>
+  <br/>
+  <form action="/ageDog" method="POST">
+    <label for="name">Name of dog to steal a year from:</label>
+    <input type="text" name="name" value="">
+    <input type="submit" value="Submit"> Is this in dog years?
+  </form>
+  <br/>
+  <br/>
+
+  <form action="/findDogByName" method="GET">
+    <label for="name">Name to search for:</label>
+    <input type="text" name="name" value="">
+    <input type="submit" value="Submit">
+  </form>
 </body>
+
 </html>
