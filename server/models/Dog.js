@@ -24,7 +24,7 @@ const DogSchema = new mongoose.Schema({
     min: 0,
   },
 
-  createdData: {
+  createdDate: {
     type: Date,
     default: Date.now,
   },

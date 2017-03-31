@@ -98,16 +98,22 @@ const searchDogName = (req, res) => {
     }
 
     // if a match, send the match back
-    return res.json({ name: doc.name, beds: doc.bedsOwned });
+    return res.json({
+      name: doc.name,
+      breed: doc.breed,
+      age: doc.age,
+      createdDate: doc.createdDate,
+    });
   });
 };
 
 const ageDogName = (req, res) => {
-  if (!req.query.name) {
+  console.log(req.body);
+  if (!req.body.name) {
     return res.json({ error: 'Name is required to perform this operation.' });
   }
 
-  return Dog.findByName(req.query.name, (err, doc) => {
+  return Dog.findByName(req.body.name, (err, doc) => {
     if (err) {
       return res.json({ err }); // if error, return it
     }
@@ -140,7 +146,12 @@ const hostDogList = (req, res) => {
     }
 
     // return success
-    return res.render('page4', { dogs: docs });
+    return res.render('page4', {
+      dogs: docs,
+      helpers: {
+        displayDate: date => `${date.getMonth()}/${date.getDay()}/${date.getFullYear()} - ${date.getHours()}:${date.getMinutes()}`,
+      },
+    });
   };
 
   readAllDogs(req, res, callback);

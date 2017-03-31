@@ -9,7 +9,7 @@ const defaultData = {
   bedsOwned: 0,
 };
 
-console.dir(Cat);
+
 let lastAdded = new Cat(defaultData);
 
 
